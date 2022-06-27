@@ -26,15 +26,19 @@ function App() {
           }
         `,
       },
-    }).then((res) => {
-      const data = res.data.data;
-      const { characters, locations, episodes } = data;
-      let results;
-      if (characters) results = characters.results;
-      if (episodes) results = episodes.results;
-      if (locations) results = locations.results;
-      setResults([...results]);
-    });
+    })
+      .then((res) => {
+        const data = res.data.data;
+        const { characters, locations, episodes } = data;
+        let results;
+        if (characters) results = characters.results;
+        if (episodes) results = episodes.results;
+        if (locations) results = locations.results;
+        setResults([...results]);
+      })
+      .catch((err) => {
+        console.log("something went wrong");
+      });
   }, [selectValue]);
   return (
     <main>
