@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL: "https://rickandmortyapi.com/graphql",
+  baseURL: import.meta.env.VITE_GQL_ENDPOINT,
   method: "POST",
 });
 
